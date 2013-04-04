@@ -1,0 +1,84 @@
+/*   
+Theme Name: AGD Gray Mint
+Theme URI: 
+Description: AGD Gray Mint
+Author: MgHla
+Author URI: http://MgHla.net/
+Template: thematic
+Version: 1.0
+Tags: AGD Gray Mint
+.
+Thematic is © Ian Stewart http://themeshaper.com/
+.
+*/
+
+/* Reset browser defaults */
+@import url('library/styles/reset.css');
+
+/* Apply basic typography styles */
+@import url('library/styles/typography.css');
+
+/* Apply a basic layout */
+@import url('2c-r-fixed.css');
+
+/* Apply basic image styles */
+@import url('/library/styles/images.css');
+
+/* Apply default theme styles and colors */
+/* It's better to actually copy over default.css into this file (or link to a copy in your child theme) if you're going to do anything outrageous */
+@import url('default.css');
+
+/* Prepare theme for plugins */
+@import url('library/styles/plugins.css');
+
+/* Prepare Daves Live Search for plugins */
+@import url('daves-wordpress-live-search_default_gray.css');
+
+body, input, textarea {
+	font-family: "Zawgyi-One", "Myriad Pro", "Trebuchet MS", Arial, Tahoma, Helvetica, sans-serif;
+	font-size: 13px;
+    line-height:20px;
+	color: #666;
+}
+
+pre, code {
+	font:11px "Zawgyi-One", Monaco, monospace;
+	line-height:14px;
+}
+
+
+/* qTranslate CSS
+___________________________________________________________*/
+
+.qtrans_language_chooser {
+	font-family: Zawgyi-One;
+	list-style-type:none;
+}
+
+#translate-chooser ul {
+	font-family: Zawgyi-One;
+  list-style:none;
+  margin: 0;
+}
+
+#translate-chooser li {
+	font-family: Zawgyi-One;
+  float: left;
+  position: relative;
+  padding: 0 5px 0 5px;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5);
+}

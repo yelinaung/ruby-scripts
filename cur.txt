@@ -1,0 +1,11 @@
+cb
+http://www.cbbankmm.com/FXRatesHo.php
+agd
+http://www.agdbank.com/
+central
+http://forex.cbm.gov.mm/api/latest
+The currencies from CB Bank are
+     USD     874     888
+     FEC     874     888
+     SGD     702     716
+     EUR     1108     1136
