@@ -1,23 +1,22 @@
 require 'net/http'
-require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-PAGE_URL = "http://www.cbbankmm.com/FXRatesHo.php"
+page_url = "http://www.cbbankmm.com/fxratesho.php"
 sources = {
-    cb: "http://www.cbbankmm.com/FXRatesHo.php",
+    cb: "http://www.cbbankmm.com/fxratesho.php",
     agd: "http://www.agdbank.com/",
     central: "http://forex.cbm.gov.mm/api/latest"
 }
 
+puts sources[:cb]
 puts "Currencies from CB Bank are"
-if @page = Nokogiri::HTML(open("AGD.html"))
+if @page = Nokogiri::HTML(open(sources[:cb]))
     (1..3).each do |i|
-        @page.css("tr")[i].text
+        puts @page.css("tr")[i].text.gsub(/\s+/,'')
     end
 end
-puts $z
 #puts "Currencies from AGD Bank are"
 if @page = Nokogiri::HTML(open("CB.html"))
     (1..3).each do |x|
