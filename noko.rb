@@ -10,9 +10,10 @@ sources = {
     central: "http://forex.cbm.gov.mm/api/latest"
 }
 
-puts sources[:cb]
+hash
+#puts sources[:cb]
 puts "Currencies from CB Bank are"
-if @page = Nokogiri::HTML(open(sources[:cb]))
+if @page = Nokogiri::HTML(open("AGD.html"))
     (1..3).each do |i|
         puts @page.css("tr")[i].text.gsub(/\s+/,'')
     end
