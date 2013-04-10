@@ -40,7 +40,7 @@ class Currencies
     end
 
     def fec
-        parsed[1].gsub(/^[0-9]|s+/,'')
+        parsed[1].gsub(/FEC|^[0-9]|s+/,'')
     end
 
     def sgd
