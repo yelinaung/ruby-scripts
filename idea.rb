@@ -52,7 +52,7 @@ class Currencies
     end
 
     def cb_fec
-        parsed_CB[1].gsub(/FEC|^[0-9]|s+/,'').chars.each_slice(2).map {|h| h.join.to_i}.to_s
+        puts parsed_CB[1].gsub(/FEC|s+/,'')
     end
 
     def sgd
