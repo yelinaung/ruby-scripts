@@ -20,6 +20,10 @@ class Currencies
         @parsed ||= @page.css("tr")[1..3].collect{|el| el.text.gsub(/\s+/,'') }
     end
 
+    def parsed_CB
+        @parsed_CB ||= @page.css("tr")[1..4].collect{|el| el.text.gsub(/\s+/,'')}
+    end
+
     def to_hash_AGD
     {
         bank: @bank,
@@ -36,8 +40,8 @@ class Currencies
         bank: @bank,
         rates: {
             USD: usd,
-            FEC: fec,
-            SGD: sgd,
+            FEC: cb_fec,
+            SGD: cb_sgd,
             EURO: euro,
         }
     }
@@ -47,18 +51,31 @@ class Currencies
        parsed[0].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
     end
 
-    #def fec
-    #    parsed[1].gsub(/FEC|^[0-9]|s+/,'')
-    #end
+    def cb_fec
+        parsed_CB[1].gsub(/FEC|^[0-9]|s+/,'').chars.each_slice(2).map {|h| h.join.to_i}.to_s
+    end
 
     def sgd
-        parsed[1].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
+       parsed[0].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
+    end
+
+    def cb_sgd
+        parsed_CB[2].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map {|h| h.to_i}.to_s
     end
 
     def euro
-        parsed[2].gsub(/[^0-9]|s+/,'').to_s.scan(/..../).map { |h| h.to_i}.to_s
+        parsed_CB[if @bank=="AGD"
+        2
+        elsif @bank=="CB"
+        3
+        else
+        end].gsub(/[^0-9]|s+/,'').to_s.scan(/..../).map { |h| h.to_i}.to_s
+    end
+
+    def cb_euro
+        parased[3].gsub(/[^0-9]|s+/,'').to_s.scan(/..../).map {|h| h.to_i}.to_s
     end
 end
 
-puts Currencies.new(Nokogiri::HTML(open("AGD.html")),"AGD").to_hash_AGD.to_json
-#puts Currencies.new(Nokogiri::HTML(open("CB.html")),"CB").to_hash_CB.to_json
+puts Currencies.new(Nokogiri::HTML(open(sources[:agd])),"AGD").to_hash_AGD.to_json
+puts Currencies.new(Nokogiri::HTML(open(sources[:cb])),"CB").to_hash_CB.to_json
