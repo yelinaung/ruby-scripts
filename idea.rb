@@ -24,6 +24,7 @@ class Currencies
         @parsed_CB ||= @page.css("tr")[1..4].collect{|el| el.text.gsub(/\s+/,'')}
     end
 
+    # To hash method for AGD
     def to_hash_AGD
     {
         bank: @bank,
@@ -35,6 +36,7 @@ class Currencies
     }
     end
 
+    # To hash method for CB
     def to_hash_CB
     {
         bank: @bank,
@@ -47,16 +49,29 @@ class Currencies
     }
     end
 
+    # To hash method for KBZ
+    def to_has_KBZ
+    {
+        bank: @bank,
+        rates: {
+            USD: usd,
+            SGD: kbz_sgd,
+            EUR: kbz_euro,
+            FEC: kbz_fec,
+        }
+    }
+    end
+
     def usd
        parsed[0].gsub(/\D/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
     end
 
     def cb_fec
-        parsed_CB[1].gsub(/FEC|\D/,'').to_i.divmod(10).to_s
+        parsed_CB[1].gsub(/\D/,'').to_i.divmod(10).to_s
     end
 
     def sgd
-       parsed[0].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
+       parsed[1].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
     end
 
     def cb_sgd
