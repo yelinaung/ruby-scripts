@@ -50,14 +50,14 @@ class Currencies
     end
 
     # To hash method for KBZ
-    def to_has_KBZ
+    def to_hash_KBZ
     {
         bank: @bank,
         rates: {
             USD: usd,
-            SGD: kbz_sgd,
-            EUR: kbz_euro,
-            FEC: kbz_fec,
+            #SGD: sgd,
+            #EUR: kbz_euro,
+            #FEC: kbz_fec,
         }
     }
     end
@@ -90,7 +90,16 @@ class Currencies
     def cb_euro
         parased[3].gsub(/[^0-9]|s+/,'').to_s.scan(/..../).map {|h| h.to_i}.to_s
     end
+
+    def kbz_euro
+        parsed_CB[2].gsub(/\D/,'').to_s.scan(/..../).map{|h| h.to_i}.to_s
+    end
+
+    def kbz_fec
+        parsed_CB[3].gsub(/\D/,'').to_s.scan(/.../).map {|h| h.to_i}.to_s
+    end
 end
 
 puts Currencies.new(Nokogiri::HTML(open(sources[:agd])),"AGD").to_hash_AGD.to_json
 puts Currencies.new(Nokogiri::HTML(open(sources[:cb])),"CB").to_hash_CB.to_json
+puts Currencies.new(Nokogiri::HTML(open(sources[:kbz])),"KBZ").to_hash_KBZ.to_json
