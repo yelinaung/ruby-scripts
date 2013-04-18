@@ -1,0 +1,45 @@
+/*------------------------------------------------------------------------
+# JoomShaper Accordion Module by JoomShaper.com
+# ------------------------------------------------------------------------
+# author    JoomShaper http://www.joomshaper.com
+# Copyright (C) 2010 - 2012 JoomShaper.com. All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://www.joomshaper.com
+-------------------------------------------------------------------------*/
+.sp-accordion.sp-accordion-style4 .toggler,.sp-accordion.sp-accordion-style4 .toggler span,.sp-accordion.sp-accordion-style4 .toggler span span{
+	cursor: pointer;
+    display: block;
+    /*height: 24px;*/
+    line-height: 24px;
+    margin-bottom: 1px;
+}
+.sp-accordion.sp-accordion-style4 .toggler span,.sp-accordion.sp-accordion-style4 .toggler span span{font-size:11px;}
+.sp-accordion.sp-accordion-style4 .toggler{border-bottom: 1px dotted #B8B7B7;}
+.sp-accordion.sp-accordion-style4 .toggler span span{background:url(style4/close.png) no-repeat 5% 50%;padding:0 24px;color:#0F478E;}
+.sp-accordion.sp-accordion-style4 .active span span{background:url(style4/open.png) no-repeat 5% 50%;color:#0F478E;}
+.sp-accordion.sp-accordion-style4 .sp-accordion-inner{padding:0 16px 0 24px}
+.sp-accordion{
+	width:224px;
+	height:120px;
+	overflow:scroll;
+	overflow-x:hidden;
+	padding: 8px 10px 10px 10px;
+	margin-top:1px;
+}
+.sp-accordion p{
+	font-size: 11px;
+    line-height: 20px;
+    margin-left: -15px;
+    text-align: left;
+    width: 180px;
+}
+.sp-accordion div.branch-right{
+	margin-left:0px;	
+	margin-top:3px;
+}
+.toggler:nth-child(2n){
+	background: #A7DFFA;
+}
+.toggler:nth-child(2n+1){
+	background: #DBF3FF;
+}

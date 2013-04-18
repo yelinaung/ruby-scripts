@@ -3,14 +3,16 @@ require 'json'
 require 'open-uri'
 require 'net/http'
 
+# Bank Sources
 sources = {
     cb: "http://www.cbbankmm.com/FXRatesHo.php",
     kbz: "http://www.kbzbank.com/",
     agd: "http://www.agdbank.com/category/exchange-rate/",
     central: "http://forex.cbm.gov.mm/api/latest"
 }
+
+
 class Currencies
-    @bank
     def initialize (page, bank)
         @page = page
         @bank = bank
@@ -63,7 +65,7 @@ class Currencies
     end
 
     def usd
-       parsed[0].gsub(/\D/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
+        parsed[0].gsub(/\D/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
     end
 
     def cb_fec
@@ -71,7 +73,7 @@ class Currencies
     end
 
     def sgd
-       parsed[1].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
+        parsed[1].gsub(/[^0-9]|s+/,'').to_s.scan(/.../).map { |h| h.to_i}.to_s
     end
 
     def cb_sgd

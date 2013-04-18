@@ -1,0 +1,42 @@
+
+
+.mid-text{font-weight:bold;}
+
+/*
+#sptab90 ul.tabs_container li.tab span{font-weight: bold;padding:0px 7px;}
+.jt-menu li a{font-weight: bold!important;}
+#nav a,#subMenusContainer ul li a{font-weight:bold;}
+.jt-menu li.item-493 ul{
+	margin-left:279px;
+  	width:712px !important;
+}
+.jt-menu li.item-497 ul{
+	margin-left:617px;
+  	width:373px !important;
+}
+li.item-484 ul{
+	margin-left:158px;
+ 	width:832px !important;
+}
+
+*/
+#sptab90 ul.tabs_container{border:none;}
+
+#sptab90 ul.tabs_container li.tab span{
+	padding: 1px 4px 1px 4px;
+	font-style:normal!important;
+	font-weight: 400!important;
+}
+
+.inline input[type="submit"]{
+	border:none;
+	padding-top:3px!important;
+	margin-left:-1px;
+	height:23px;
+
+}
+li.item-492 a{
+padding: 5px 15px;
+line-height:14px;}
+
+
