@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    <pre style="word-wrap: break-word; white-space:pre-wrap;">
+    [
+        <%= JSON.pretty_generate(@agd_json)%>,<br>
+        <%= JSON.pretty_generate(@cb_json)%>,<br>
+        <%= JSON.pretty_generate(@kbz_json)%>
+    ]
+    </pre>
+    </body>
+</html>
